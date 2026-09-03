@@ -1,0 +1,63 @@
+/*
+         .-.
+       __| |__
+      [__   __]
+         | |
+         | |           Matthew 19:26
+         | |  'With man, this is impossible,
+         '-'     but with God, all things are possible'
+*/
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define FOR(i, a, b) for(int i = a; i < b; i++)
+#define FORE(i, a, b) for(int i = a; i <= b; i++)
+#define FORLL(i, a, b) for(ll i = a; i < b; i++)
+#define FORELL(i, a, b) for(ll i = a; i <= b; i++)
+#define FORD(i, a, b) for(int i = a; i > b; i--)
+#define INF 2e9 // 2e9
+#define INFLL 2e18 // 2e18
+#define esp 1e-9
+#define PI 3.14159265
+
+inline ll GCD(ll a, ll b) {while (b != 0) {ll c = a % b; a = b; b = c;} return a;};
+inline ll LCM(ll a, ll b) {return (a / GCD(a,b)) * b;};
+
+void backtrack(int pos, int n, string &s)
+{
+    if(pos == n) {
+        cout << s << "\n";
+        return;
+    }
+    s.push_back('0');
+    backtrack(pos + 1, n, s);
+    s.pop_back();
+    
+    s.push_back('1');
+    backtrack(pos + 1, n, s);
+    s.pop_back();
+}
+
+void solve()
+{
+    int n;
+    cin >> n;
+    string s = "";
+
+    backtrack(0, n, s);
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    //int tc;
+    //cin >> tc;
+    //while(tc--) {
+    solve();
+    //}
+
+    cerr << "\nTime elapsed: " << 1000 * clock()/CLOCKS_PER_SEC << "ms";
+    return 0;
+}
